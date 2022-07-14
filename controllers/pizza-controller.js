@@ -1,4 +1,4 @@
-const { Pizza } = require('../modles');
+const { Pizza } = require('../models');
 
 const pizzaController = {
 
@@ -17,7 +17,7 @@ const pizzaController = {
         Pizza.findOne({ _id: params.id })
         .then(dbPizzaData => {
             // if no pizza id found, send 404
-            if (!bPizzaData) {
+            if (!dbPizzaData) {
                 res.status(404).json({ message: 'No pizza found with this id!' });
                 return;
             }
